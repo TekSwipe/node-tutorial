@@ -22,10 +22,12 @@ body {
     color: #222;
     font-size: 1.5rem;
     font-weight: bold;
+    transition: all 0.2s ease-in-out;
 }
 
 .site-title a:hover {
     color: rgb(60, 0, 255);
+    margin-left: 10px;
 }
 
 .nav-items {
