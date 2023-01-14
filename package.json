@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "this is the node js tutorial for express by net ninja",
   "main": "server.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
