@@ -14,7 +14,7 @@ const dbURI = `mongodb+srv://${mongoUsername}:${mongoPassword}@${mongoServer}.mo
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => {
         console.log('connected to db');
-        app.listen(3000);
+        app.listen(8080);
     })
     .catch((err) => console.log(err));
 
