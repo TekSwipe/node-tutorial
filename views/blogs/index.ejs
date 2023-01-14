@@ -1,0 +1,45 @@
+<html lang="en">
+    <%- include("../partials/head.ejs") %>
+    <body>
+        <%- include("../partials/nav.ejs") %>
+        <div class="blogs content">
+            <h2>All blogs</h2>
+            <% if (blogs.length > 0) {%>
+                <% blogs.forEach(blog => { %>
+                <a class="blog-link" href="/blogs/<%= blog.id %>">
+                    <div class="blog-preview">
+                        <h2><%= blog.title %></h2>
+                        <p class="author-text">Written by <%= blog.author %></p>
+                        <p><%= blog.snippet %></p>
+                        <p><%= blog.created_at %></p>
+                        <a class="delete" data-doc="<%= blog.id %>">Delete</a>
+                    </div>
+                    
+                </a>
+                <% }) %>
+            <% } %>
+        </div>
+        <%- include("../partials/footer.ejs") %>
+
+        <script>
+            const deleteBlog = document.querySelectorAll('a.delete');
+            console.log('starting listeners')
+            deleteBlog.forEach((btn) => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const endpoint = `/blogs/${e.target.dataset.doc}`;
+                    fetch(endpoint, {
+                        method: 'DELETE'
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        window.location.href = '/blogs';
+                    })
+                    .catch(err => console.log(err))
+                })
+            })
+
+        </script>
+    </body>
+</html>

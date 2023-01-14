@@ -1,0 +1,15 @@
+<html lang="en">
+    <%- include("../partials/head.ejs") %>
+    <body>
+        
+        <%- include("../partials/nav.ejs") %>
+
+        <div class="content">
+            <h2><%= blog.title %></h2>
+            <p class="author-text">Written by <%= blog.author %></p>
+            <p><%= blog.created_at %></p>
+            <p><%= blog.body %></p>
+        </div>
+        <%- include("../partials/footer.ejs") %>
+    </body>
+</html>
